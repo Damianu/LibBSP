@@ -100,7 +100,7 @@ namespace LibBSP
                     {
                         inQuotes = !inQuotes;
                     }
-                    else if ((char)data[offset - 1] != '\\')
+                    else if ((char)data[offset - 1] == '\\')
                     {
                         // Allow for escape-sequenced quotes to not affect the state machine, but only if the quote isn't at the end of a line.
                         // Some Source engine entities use escape sequence quotes in values, but MoHAA has a map with an obvious erroneous backslash before a quote at the end of a line.
