@@ -163,7 +163,7 @@ namespace LibBSP
         /// <returns>The X component of this <see cref="Vector2"/>.</returns>
         public static float X(this Vector2 vector)
         {
-#if UNITY || GODOT
+#if UNITY || GODOT3
             return vector.x;
 #else
             return vector.X;
@@ -177,7 +177,7 @@ namespace LibBSP
         /// <returns>The Y component of this <see cref="Vector2"/>.</returns>
         public static float Y(this Vector2 vector)
         {
-#if UNITY || GODOT
+#if UNITY || GODOT3
             return vector.y;
 #else
             return vector.Y;

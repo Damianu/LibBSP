@@ -8,8 +8,10 @@ namespace LibBSP
 {
 #if UNITY
     using Vector4 = UnityEngine.Vector4;
-#elif GODOT
-    using Vector4 = Godot.Quat;
+#elif GODOT4
+        using Vector4 = Godot.Vector4;
+#elif GODOT3
+        using Vector4 = Godot.Quat;
 #elif NEOAXIS
     using Vector4 = NeoAxis.Vector4F;
 #else
@@ -105,7 +107,7 @@ namespace LibBSP
         {
 #if UNITY
             return vector.sqrMagnitude;
-#elif GODOT
+#elif GODOT3
             return (vector.x * vector.x) + (vector.y * vector.y) + (vector.z * vector.z) + (vector.w * vector.w);
 #else
             return vector.LengthSquared();
@@ -173,7 +175,7 @@ namespace LibBSP
         /// <returns>The X component of this <see cref="Vector4"/>.</returns>
         public static float X(this Vector4 vector)
         {
-#if UNITY || GODOT
+#if UNITY || GODOT3
             return vector.x;
 #else
             return vector.X;
@@ -187,7 +189,7 @@ namespace LibBSP
         /// <returns>The Y component of this <see cref="Vector4"/>.</returns>
         public static float Y(this Vector4 vector)
         {
-#if UNITY || GODOT
+#if UNITY || GODOT3
             return vector.y;
 #else
             return vector.Y;
@@ -201,7 +203,7 @@ namespace LibBSP
         /// <returns>The Z component of this <see cref="Vector4"/>.</returns>
         public static float Z(this Vector4 vector)
         {
-#if UNITY || GODOT
+#if UNITY || GODOT3
             return vector.z;
 #else
             return vector.Z;
@@ -215,7 +217,7 @@ namespace LibBSP
         /// <returns>The Z component of this <see cref="Vector4"/>.</returns>
         public static float W(this Vector4 vector)
         {
-#if UNITY || GODOT
+#if UNITY || GODOT3
             return vector.w;
 #else
             return vector.W;

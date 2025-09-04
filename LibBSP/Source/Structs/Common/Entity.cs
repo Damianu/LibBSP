@@ -13,9 +13,12 @@ namespace LibBSP
 #if UNITY
     using Vector3 = UnityEngine.Vector3;
     using Vector4 = UnityEngine.Vector4;
-#elif GODOT
+#elif GODOT3
     using Vector3 = Godot.Vector3;
     using Vector4 = Godot.Quat;
+#elif GODOT4
+    using Vector3 = Godot.Vector3;
+    using Vector4 = Godot.Vector4;
 #elif NEOAXIS
     using Vector3 = NeoAxis.Vector3F;
     using Vector4 = NeoAxis.Vector4F;

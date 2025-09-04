@@ -32,7 +32,9 @@ namespace LibBSP
         {
 #if UNITY
             return new Color((byte)r, (byte)g, (byte)b, (byte)a);
-#elif GODOT
+#elif GODOT4
+            return new Color(r / 255f, g / 255f, b / 255f, a);
+#elif GODOT3
             return new Color((byte)r << 24 | (byte)g << 16 | (byte)b << 8 | (byte)a);
 #elif NEOAXIS
             return new Color(r, g, b, a);
@@ -54,11 +56,16 @@ namespace LibBSP
             bytes[1] = color.g;
             bytes[2] = color.b;
             bytes[3] = color.a;
-#elif GODOT
+#elif GODOT3
             bytes[0] = (byte)color.r8;
             bytes[1] = (byte)color.g8;
             bytes[2] = (byte)color.b8;
             bytes[3] = (byte)color.a8;
+#elif GODOT4
+            bytes[0] = (byte)color.R8;
+            bytes[1] = (byte)color.G8;
+            bytes[2] = (byte)color.B8;
+            bytes[3] = (byte)color.A8;
 #elif NEOAXIS
             bytes[0] = color.Red;
             bytes[1] = color.Green;
@@ -82,8 +89,10 @@ namespace LibBSP
         {
 #if UNITY
             return color.a;
-#elif GODOT
+#elif GODOT3
             return (byte)color.a8;
+#elif GODOT4
+            return (byte)color.A8;
 #elif NEOAXIS
             return color.Alpha;
 #else
@@ -100,8 +109,10 @@ namespace LibBSP
         {
 #if UNITY
             return color.r;
-#elif GODOT
-            return (byte)color.r8;
+#elif GODOT3
+            return (byte)color.R8;
+#elif GODOT4
+            return (byte)color.R8;
 #elif NEOAXIS
             return color.Red;
 #else
@@ -118,8 +129,10 @@ namespace LibBSP
         {
 #if UNITY
             return color.g;
-#elif GODOT
+#elif GODOT3
             return (byte)color.g8;
+#elif GODOT4
+            return (byte)color.G8;
 #elif NEOAXIS
             return color.Green;
 #else
@@ -136,8 +149,10 @@ namespace LibBSP
         {
 #if UNITY
             return color.b;
-#elif GODOT
+#elif GODOT3
             return (byte)color.b8;
+#elif GODOT4
+            return (byte)color.B8;
 #elif NEOAXIS
             return color.Blue;
 #else
